@@ -1,16 +1,12 @@
 {
-  "projects":[
+  "projects": [
     {
-      "id":1,
-      "title":"laravel job platform",
-      "details":"laravel with vue or livewire",
-      "complete":false
+      "complete": true,
+      "id": 1
     },
     {
-      "id":2,
-      "title":"e-commcer-paltform",
-      "details":"laravel with vue or livewire",
-      "complete":true
+      "complete": true,
+      "id": 2
     }
   ]
 }
