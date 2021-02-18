@@ -4,8 +4,14 @@
 
 <style>
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body{
-  background: #f2f2f2;
+  background: #333;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

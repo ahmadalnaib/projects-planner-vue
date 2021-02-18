@@ -1,12 +1,11 @@
+
 {
-  "projects": [
+  "projects":[
     {
-      "complete": true,
-      "id": 1
-    },
-    {
-      "complete": true,
-      "id": 2
+      "id":1,
+      "title":"laravel vue ",
+      "details":"fdfdfdfdfd",
+      "complete":false
     }
   ]
 }
