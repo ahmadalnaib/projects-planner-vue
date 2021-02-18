@@ -6,29 +6,35 @@
 
         <label for="details">Details</label>
          <textarea  required v-model="details"></textarea>
-         <button>Add project</button>
+         <button>Update project</button>
   </form>
 </template>
 
 <script>
 export default {
+  props:['id'],
 data(){
   return {
     title:'',
     details:'',
+    url:'http://localhost:3000/projects/'+ this.id,
   }
 },
+
+mounted(){
+fetch(this.url)
+.then(res =>res.json())
+.then(data =>{
+ this.title=data.title
+ this.details=data.details
+})
+},
 methods:{
-  handelSubmit(){
-   let project={
-     title:this.title,
-    details:this.details,
-     complete:false
-   }
-   fetch('http://localhost:3000/projects',{
-     method:'POST',
+handelSubmit(){
+   fetch(this.url,{
+     method:'put',
      headers:{'Content-type':'application/json'},
-     body:JSON.stringify(project)
+     body:JSON.stringify({title:this.title,details:this.details})
    }).then(()=>{
      this.$router.push('/')
    })

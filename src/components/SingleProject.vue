@@ -3,7 +3,9 @@
     <div class="actions">
       <h3 @click="showDetails" title="show details">{{project.title}}</h3>
       <div class="icons">
-       <i class="far fa-edit fa-2x"></i>
+      <router-link :to="{name:'EditProject', params:{id:project.id}}">
+         <i class="far fa-edit fa-2x"></i>
+      </router-link>
        <i @click="deleteProject" class="far fa-trash-alt fa-2x"></i>
        <i @click="toggleComplete" class="far fa-check-circle fa-2x tick"></i>
       </div>
@@ -34,8 +36,7 @@ methods:{
     .catch(err => console.log(err.message))
     
   },
-  toggleComplete()
-  {
+  toggleComplete(){
     fetch(this.url,{
       method:"PUT",
       headers:{'Content-type':'application/json'},

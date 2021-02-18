@@ -2,10 +2,11 @@
 
 
   <div class="home">
+    <filter-nav @filterChange="current=$event" :current="current"/>
   <div v-if="projects.length">
     
      <div v-for="project in projects" :key="project.id">
-      <SingleProject :project="project" @delete="handleDelete" @complete='handleComplete'/>
+      <SingleProject :project="project" @complete='handleComplete' @delete="handleDelete" />
      </div>
      
   </div>
@@ -15,16 +16,19 @@
 
 <script>
 import SingleProject from '../components/SingleProject.vue'
+import FilterNav from '../components/FilterNav.vue'
 
 export default {
   name: 'Home',
   components: {
-    SingleProject
+    SingleProject,
+    FilterNav
   },
   
   data(){
     return {
-      projects:[]
+      projects:[],
+      current:'all'
     }
   },
   
@@ -51,3 +55,11 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+.home {
+max-width: 600px;
+  margin: 0 auto; 
+}
+</style>
